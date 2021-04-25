@@ -1,0 +1,42 @@
+@import '../../app';
+
+.book_container {
+    background-color: #3dc29c;
+    display: flex;
+    margin: 20px auto;
+    padding: 10px;
+    justify-content: space-between;
+    border-radius: 4px;
+
+    &_note {
+        width: 450px;
+        padding: 10px 30px;
+        color:#fff;
+        
+        p {
+          @include limit-text(300px);
+          line-height: 1.5;
+          letter-spacing: 0.5px; 
+          font-size: 18px;
+          span {
+              font-weight: 700;
+          }
+        }
+    }
+}
+
+@media (max-width:550px) {
+    .book_container {
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+        img {
+          border: 2px solid #fff;
+        }
+
+        &_note {
+            width: auto;
+        }
+    }
+}

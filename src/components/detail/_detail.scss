@@ -1,0 +1,18 @@
+.detail_container {
+    
+    
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    justify-content: space-evenly;
+    
+    &_top {
+
+        display: flex;
+       img {
+           height: 300px;
+           width: 300px;
+       }
+    }
+    
+}

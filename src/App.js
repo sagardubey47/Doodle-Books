@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{useState}  from "react"
+import Header from "./components/header/Header"
+import List from "./components/list/List"
+import Detail from "./components/detail/Detail"
+import {Redirect, Route, Switch} from "react-router-dom"
+import "./_app.scss"
 
 function App() {
+    
+  const [modelId, setModelId] = useState(null);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <>
+      <Header />
+      <div className="container">
+        <Switch>
+          <Route path="/" exact > 
+             <List setModelId={setModelId} />
+          </Route>
+          <Route path="/detail" exact > 
+             <Detail setModelId={setModelId} />
+          </Route>
+          <Route>
+            <Redirect to="/" />    
+          </Route>
+        </Switch>
+      </div>
+   </>
   );
 }
 
