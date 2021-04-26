@@ -6,7 +6,7 @@ import BookContainer from "../bookContainer/BookContainer"
 import {Link} from "react-router-dom"
 import { getModel } from '../../redux/action/modelData.action';
 
-const List = ({setModelId}) => {
+const List = () => {
 
     const dispatch = useDispatch();
 
@@ -23,8 +23,7 @@ const List = ({setModelId}) => {
               {volumes.map((volume) => {
                  
                   const handleClick = () => {
-                           setModelId(volume.id);
-                           console.log(volume.id);
+                          
                            dispatch(getModel(volume.id));
                          } 
 

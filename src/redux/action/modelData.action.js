@@ -11,8 +11,7 @@ export const getModel = (id) => async dispatch => {
         })
 
         const {data} = await request(`volumes/${id}`);
-        console.log(data);
-
+    
          dispatch({
             type: 'MODEL_SUCCESS',
             payload: data

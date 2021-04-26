@@ -18,7 +18,7 @@ export const getPopularVolumes = () => async dispatch => {
             }
       });
 
-      console.log(data.items);
+
 
        dispatch({
            type: 'HOME_VOLUME_SUCCESS',

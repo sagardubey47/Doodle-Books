@@ -43,3 +43,14 @@
     }
     
 }
+
+@media (max-width:550px) {
+    .detail_container {
+        
+        &_top {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+}
