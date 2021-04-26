@@ -3,8 +3,9 @@ import defaultImg from "../../image/defaultImg.jpg";
 import {useSelector} from "react-redux"
 import "./_detail.scss"
 
-const Detail = () => {
-  
+
+const Detail = ({handleBack}) => {
+
   const model = useSelector(state => state.modelData.model)  
   const {volumeInfo} = model;
 
@@ -21,9 +22,10 @@ const Detail = () => {
 
      return(
             <div className="detail_container">
+              
               <div className="detail_container_top">
                  <img src={thumbnailLg} alt="thumbnail" /> 
-                 <div >
+                 <div className="detail_container_top_note" >
                      <p ><span>Title:</span> {title}</p>
                      <p ><span>Author: </span> {authors ? authors[0] : "Mr anonymous"}</p>
                      <p ><span>Published Date: </span> {publishedDate} </p>
@@ -36,7 +38,7 @@ const Detail = () => {
                      <button>
                         <a href={canonicalVolumeLink} target="blank">Canonical View</a>
                      </button> 
-                     <button > go back</button>
+                     <button onClick={handleBack}>go back</button>
                  </div>
               </div>
               <div className="detail_container_bottom">

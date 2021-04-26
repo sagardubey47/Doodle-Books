@@ -2,30 +2,36 @@ import React,{useState}  from "react"
 import Header from "./components/header/Header"
 import List from "./components/list/List"
 import Detail from "./components/detail/Detail"
-import {Redirect, Route, Switch} from "react-router-dom"
+import {Redirect, Route, Switch, useHistory} from "react-router-dom"
 import "./_app.scss"
+
 
 function App() {
     
   const [modelId, setModelId] = useState(null);
 
+  let history = useHistory();
+  const handleBack = () => {
+    history.push("/");
+  }
+  
   return (
-   <>
-      <Header />
-      <div className="container">
+      <div>
+        <Header />
         <Switch>
-          <Route path="/" exact > 
-             <List setModelId={setModelId} />
-          </Route>
-          <Route path="/detail" exact > 
-             <Detail setModelId={setModelId} />
-          </Route>
-          <Route>
-            <Redirect to="/" />    
-          </Route>
+          <div className="container">
+            <Route path="/" exact > 
+              <List setModelId={setModelId} />
+            </Route>
+            <Route path="/detail" exact > 
+              <Detail handleBack={handleBack}/>
+            </Route>
+            <Route>
+              <Redirect to="/" />    
+            </Route>
+          </div>
         </Switch>
-      </div>
-   </>
+     </div>
   );
 }
 

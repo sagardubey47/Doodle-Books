@@ -15,6 +15,15 @@ body {
     background-color: rgb(240, 240, 240);
 }
 
+a {
+   text-decoration: none;
+   color: #fff;
+}
+
+.link_style {
+    text-decoration: none;
+}
+
 @mixin limit-text($number) {
      display: block;
      width: $number;

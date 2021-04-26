@@ -28,7 +28,7 @@ const List = ({setModelId}) => {
                            dispatch(getModel(volume.id));
                          } 
 
-                  return <Link to="/detail" onClick={handleClick} key={volume.id}>
+                  return <Link to="/detail" onClick={handleClick} key={volume.id} className="link_style">
                             <BookContainer key={volume.id} volume={volume} />   
                          </Link>
                   
