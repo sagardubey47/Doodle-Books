@@ -8,11 +8,12 @@ const Detail = ({handleBack}) => {
 
   const model = useSelector(state => state.modelData.model)  
   const {volumeInfo} = model;
+  const regex = /(<([^>]+)>)/ig;
 
   const authors = volumeInfo ? volumeInfo.authors : ["Mr anonymous"];
   const canonicalVolumeLink = volumeInfo ? volumeInfo.canonicalVolumeLink : null;
   const categories = volumeInfo ? volumeInfo.categories : ["unknown"];
-  const description = volumeInfo ? volumeInfo.description : "Not Available";
+  const description = volumeInfo ? volumeInfo.description?.replace(regex, '') : "Not Available";
   const thumbnailLg = volumeInfo ? (volumeInfo.imageLinks ? volumeInfo.imageLinks.large: defaultImg) : defaultImg;  
   const previewLink = volumeInfo ? volumeInfo.previewLink : null;
   const publishedDate = volumeInfo ? volumeInfo.publishedDate : "2020";
